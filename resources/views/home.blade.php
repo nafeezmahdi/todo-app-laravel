@@ -4,7 +4,13 @@
 
     <div class="home-page">
 
-        <h1>My Todo List</h1>
+        <h1>
+            My Todo List
+
+            <a href="{{ route('todos.create') }}" class="home-button">
+                + New Task
+            </a>
+        </h1>
 
         <p class="home-description">
             Welcome, {{ auth()->user()->name }}.
@@ -26,18 +32,50 @@
 
                     </div>
 
-                    <form action="{{ route('todos.toggle', $todo->id) }}" method="POST">
-                        @csrf
+                    <div class="todo-actions">
 
-                        <button type="submit" class="todo-checkbox">
-                            @if ($todo->completed)
-                                ✓ Completed
-                            @else
-                                ○ Pending
-                            @endif
-                        </button>
+                        {{-- Complete / Pending --}}
+                        <form
+                            action="{{ route('todos.toggle', $todo->id) }}"
+                            method="POST"
+                        >
+                            @csrf
 
-                    </form>
+                            <button type="submit" class="todo-checkbox">
+                                @if ($todo->completed)
+                                    ✓ Completed
+                                @else
+                                    ○ Pending
+                                @endif
+                            </button>
+
+                        </form>
+
+                        {{-- Edit --}}
+                        <a
+                            href="{{ route('todos.edit', $todo) }}"
+                            class="edit-btn"
+                        >
+                            Edit
+                        </a>
+
+                        {{-- Delete --}}
+                        <form
+                            method="POST"
+                            action="{{ route('todos.destroy', $todo) }}"
+                            class="delete-form"
+                            onsubmit="return confirm('Are you sure you want to delete this task?');"
+                        >
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="delete-btn">
+                                Delete
+                            </button>
+
+                        </form>
+
+                    </div>
 
                 </div>
 

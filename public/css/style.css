@@ -60,6 +60,10 @@ body {
     background: #d1d5db;
 }
 
+/* =========================
+   Login
+   ========================= */
+
 .login-container {
     width: 360px;
     margin: 100px auto;
@@ -108,6 +112,10 @@ body {
     background: #1d4ed8;
 }
 
+/* =========================
+   Error Messages
+   ========================= */
+
 .error {
     margin-bottom: 15px;
     padding: 10px;
@@ -121,6 +129,10 @@ body {
     margin: 5px 0;
 }
 
+/* =========================
+   Todo List
+   ========================= */
+
 .todo-list {
     max-width: 700px;
     margin: 30px auto;
@@ -133,10 +145,13 @@ body {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 15px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.todo-content {
+    flex: 1;
 }
 
 .todo-item h3 {
@@ -177,4 +192,199 @@ body {
 
 .todo-checkbox:hover {
     opacity: 0.7;
+}
+
+/* =========================
+   Create New Task
+   ========================= */
+
+.create-page {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.create-card {
+    width: 820px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 42px;
+    box-shadow: 0 12px 40px rgba(30, 50, 90, 0.08);
+}
+
+.create-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 42px;
+}
+
+.task-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #eef3ff;
+    color: #2563eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    font-weight: 300;
+}
+
+.create-header h1 {
+    margin: 0 0 8px;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.create-header p {
+    margin: 0;
+    color: #718096;
+    font-size: 17px;
+}
+
+/* =========================
+   Create Task Form
+   ========================= */
+
+.create-page .form-group {
+    margin-bottom: 26px;
+}
+
+.create-page .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #17233c;
+}
+
+.create-page .form-group label span {
+    color: #ef4444;
+}
+
+.create-page .form-group input,
+.create-page .form-group textarea {
+    width: 100%;
+    border: 1px solid #d6dce8;
+    border-radius: 10px;
+    padding: 15px 17px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #17233c;
+    background: #ffffff;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.create-page .form-group input {
+    height: 62px;
+}
+
+.create-page .form-group textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.create-page .form-group input:focus,
+.create-page .form-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.create-page .form-group input::placeholder,
+.create-page .form-group textarea::placeholder {
+    color: #9aa5b5;
+}
+
+/* =========================
+   Create Task Buttons
+   ========================= */
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 38px;
+}
+
+.cancel-btn,
+.create-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 16px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #eef1f5;
+    color: #4b5563;
+}
+
+.cancel-btn:hover {
+    background: #e2e6ec;
+}
+
+.create-btn {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.22);
+}
+
+.create-btn:hover {
+    background: #1d4ed8;
+}
+
+/* =========================
+   Todo Actions
+   ========================= */
+
+.todo-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.todo-actions form {
+    margin: 0;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #eef3ff;
+    color: #2563eb;
+}
+
+.edit-btn:hover {
+    background: #dbe7ff;
+}
+
+.delete-btn {
+    border: none;
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+}
+
+.delete-form {
+    margin: 0;
 }
