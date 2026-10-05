@@ -12,12 +12,18 @@ return new class extends Migration
     public function up(): void
     {
       Schema::create('todos', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->text('description')->nullable();
-        $table->boolean('completed')->default(false);
-        $table->timestamps();
-    });
+    $table->id();
+
+    $table->foreignId('user_id')
+        ->constrained()
+        ->cascadeOnDelete();
+
+    $table->string('title');
+    $table->text('description')->nullable();
+    $table->boolean('completed')->default(false);
+
+    $table->timestamps();
+});
     }
 
     /**
