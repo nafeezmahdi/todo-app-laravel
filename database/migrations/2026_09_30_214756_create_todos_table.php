@@ -11,19 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-      Schema::create('todos', function (Blueprint $table) {
-    $table->id();
+        Schema::create('todos', function (Blueprint $table) {
+            $table->id();
 
-    $table->foreignId('user_id')
-        ->constrained()
-        ->cascadeOnDelete();
+            $table->foreignId('user_id')
+                ->constrained()
+                ->cascadeOnDelete();
 
-    $table->string('title');
-    $table->text('description')->nullable();
-    $table->boolean('completed')->default(false);
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->boolean('completed')->default(false);
 
-    $table->timestamps();
-});
+            $table->timestamps();
+        });
     }
 
     /**

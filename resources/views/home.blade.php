@@ -7,7 +7,7 @@
         <h1>My Todo List</h1>
 
         <p class="home-description">
-            Welcome, {{ Auth::user()->name }}.
+            Welcome, {{ auth()->user()->name }}.
         </p>
 
         <div class="todo-list">
@@ -16,23 +16,28 @@
 
                 <div class="todo-item">
 
-                    <div>
+                    <div class="todo-content">
+
                         <h3>{{ $todo->title }}</h3>
 
                         @if ($todo->description)
                             <p>{{ $todo->description }}</p>
                         @endif
+
                     </div>
 
-                    @if ($todo->completed)
-                        <span class="todo-status completed">
-                            Completed
-                        </span>
-                    @else
-                        <span class="todo-status pending">
-                            Pending
-                        </span>
-                    @endif
+                    <form action="{{ route('todos.toggle', $todo->id) }}" method="POST">
+                        @csrf
+
+                        <button type="submit" class="todo-checkbox">
+                            @if ($todo->completed)
+                                ✓ Completed
+                            @else
+                                ○ Pending
+                            @endif
+                        </button>
+
+                    </form>
 
                 </div>
 

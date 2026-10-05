@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::create('items', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('owner_id');
-        $table->string('name');
-        $table->boolean('done')->default(false);
-        $table->timestamps();
-    });
+        Schema::create('items', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('owner_id');
+            $table->string('name');
+            $table->boolean('done')->default(false);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-         Schema::dropIfExists('items');
+        Schema::dropIfExists('items');
     }
 };

@@ -9,22 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up(): void
-{
-    Schema::table('todos', function (Blueprint $table) {
-        $table->foreignId('user_id')
-            ->nullable()
-            ->after('id')
-            ->constrained()
-            ->cascadeOnDelete();
-    });
-}
+    public function up(): void
+    {
+        Schema::table('todos', function (Blueprint $table) {
+            $table->foreignId('user_id')
+                ->nullable()
+                ->after('id')
+                ->constrained()
+                ->cascadeOnDelete();
+        });
+    }
 
-public function down(): void
-{
-    Schema::table('todos', function (Blueprint $table) {
-        $table->dropForeign(['user_id']);
-        $table->dropColumn('user_id');
-    });
-}
+    public function down(): void
+    {
+        Schema::table('todos', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+        });
+    }
 };
