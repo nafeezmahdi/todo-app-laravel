@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.main')
 
-    <title>Login</title>
+@section('content')
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
+<div class="login-page">
 
-<body>
+    <div class="login-card">
 
-    <div class="login-container">
+        <div class="login-icon">
+            ✓
+        </div>
 
-        <h1>Login</h1>
+        <h1>Welcome Back</h1>
 
-        {{-- Display login errors --}}
+        <p class="login-subtitle">
+            Sign in to manage your tasks.
+        </p>
+
         @if ($errors->any())
             <div class="error">
                 @foreach ($errors->all() as $error)
@@ -24,40 +24,50 @@
             </div>
         @endif
 
-        <form method="POST" action="/login">
+        <form method="POST" action="{{ route('login') }}">
 
             @csrf
 
             <div class="form-group">
-                <label for="email">Email</label>
+
+                <label for="email">
+                    Email Address
+                </label>
 
                 <input
                     type="email"
                     id="email"
                     name="email"
                     value="{{ old('email') }}"
-                    required
+                    placeholder="Enter your email"
+                    autofocus
                 >
+
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
+
+                <label for="password">
+                    Password
+                </label>
 
                 <input
                     type="password"
                     id="password"
                     name="password"
-                    required
+                    placeholder="Enter your password"
                 >
+
             </div>
 
             <button type="submit" class="login-button">
-                Login
+                Sign In
             </button>
 
         </form>
 
     </div>
 
-</body>
-</html>
+</div>
+
+@endsection

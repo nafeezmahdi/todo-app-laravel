@@ -4,17 +4,29 @@
 
     <div class="home-page">
 
-        <h1>
-            My Todo List
+        <div class="dashboard-header">
 
-            <a href="{{ route('todos.create') }}" class="home-button">
-                + New Task
+            <div class="dashboard-title">
+
+                <h1>My Todo List</h1>
+
+                <p>
+                    Welcome back,
+                    <strong>{{ auth()->user()->name }}</strong>.
+                    Here are your current tasks.
+                </p>
+
+            </div>
+
+            <a
+                href="{{ route('todos.create') }}"
+                class="new-task-button"
+            >
+                <span>+</span>
+                New Task
             </a>
-        </h1>
 
-        <p class="home-description">
-            Welcome, {{ auth()->user()->name }}.
-        </p>
+        </div>
 
         <div class="todo-list">
 
@@ -34,14 +46,16 @@
 
                     <div class="todo-actions">
 
-                        {{-- Complete / Pending --}}
                         <form
                             action="{{ route('todos.toggle', $todo->id) }}"
                             method="POST"
                         >
                             @csrf
 
-                            <button type="submit" class="todo-checkbox">
+                            <button
+                                type="submit"
+                                class="todo-checkbox"
+                            >
                                 @if ($todo->completed)
                                     ✓ Completed
                                 @else
@@ -51,7 +65,6 @@
 
                         </form>
 
-                        {{-- Edit --}}
                         <a
                             href="{{ route('todos.edit', $todo) }}"
                             class="edit-btn"
@@ -59,7 +72,6 @@
                             Edit
                         </a>
 
-                        {{-- Delete --}}
                         <form
                             method="POST"
                             action="{{ route('todos.destroy', $todo) }}"
@@ -69,7 +81,10 @@
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="delete-btn">
+                            <button
+                                type="submit"
+                                class="delete-btn"
+                            >
                                 Delete
                             </button>
 
@@ -81,7 +96,28 @@
 
             @empty
 
-                <p>No todos found.</p>
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        ✓
+                    </div>
+
+                    <h2>No todos found</h2>
+
+                    <p>
+                        You don't have any tasks yet.
+                        Create your first task to get started.
+                    </p>
+
+                    <a
+                        href="{{ route('todos.create') }}"
+                        class="new-task-button"
+                    >
+                        <span>+</span>
+                        Create Your First Task
+                    </a>
+
+                </div>
 
             @endforelse
 

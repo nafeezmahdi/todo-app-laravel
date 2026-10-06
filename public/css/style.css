@@ -388,3 +388,517 @@ body {
 .delete-form {
     margin: 0;
 }
+
+/* =========================
+   Login Page
+   ========================= */
+
+.login-page {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.login-card {
+    width: 420px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 42px;
+    box-shadow: 0 15px 45px rgba(30, 50, 90, 0.1);
+}
+
+.login-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef3ff;
+    color: #2563eb;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.login-card h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 32px;
+    color: #17233c;
+}
+
+.login-subtitle {
+    margin: 10px 0 32px;
+    text-align: center;
+    color: #718096;
+    font-size: 16px;
+}
+
+.login-card .form-group {
+    margin-bottom: 22px;
+}
+
+.login-card .form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #17233c;
+}
+
+.login-card .form-group input {
+    width: 100%;
+    height: 54px;
+    padding: 0 15px;
+    border: 1px solid #d6dce8;
+    border-radius: 9px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.login-card .form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.login-card .login-button {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 9px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.login-card .login-button:hover {
+    background: #1d4ed8;
+}
+
+.login-card .error {
+    margin-bottom: 22px;
+}
+
+/* =========================
+   Home Header
+   ========================= */
+
+.home-header {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-header .home-description {
+    margin: 0;
+}
+
+/* =========================
+   Logout Button
+   ========================= */
+
+.logout-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #fecaca;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.site-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-container {
+    max-width: 1100px;
+    height: 76px;
+    margin: 0 auto;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #17233c;
+    text-decoration: none;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-link {
+    color: #4b5563;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.nav-button {
+    display: inline-block;
+
+    padding: 10px 17px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-button:hover {
+    background: #1d4ed8;
+}
+
+/* =========================
+   User Menu
+   ========================= */
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef3ff;
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.user-name {
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-menu form {
+    margin: 0;
+}
+
+.header-logout {
+    border: none;
+
+    background: transparent;
+    color: #dc2626;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.header-logout:hover {
+    color: #b91c1c;
+}
+
+/* =========================
+   Main Content
+   ========================= */
+
+.main-content {
+    min-height: calc(100vh - 76px - 190px);
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+.site-footer {
+    margin-top: 60px;
+    background: #17233c;
+    color: #ffffff;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 42px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand {
+    max-width: 400px;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-brand p {
+    margin: 12px 0 0;
+
+    color: #aeb8ca;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    text-align: center;
+    padding: 18px 25px;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+/* =========================
+   Dashboard Header
+   ========================= */
+
+.dashboard-header {
+    max-width: 700px;
+    margin: 0 auto 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    text-align: left;
+}
+
+.dashboard-title h1 {
+    margin: 0 0 8px;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    color: #17233c;
+}
+
+.dashboard-title p {
+    margin: 0;
+
+    color: #718096;
+
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.dashboard-title strong {
+    color: #17233c;
+}
+
+/* =========================
+   New Task Button
+   ========================= */
+
+.new-task-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 12px 18px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.18);
+
+    transition: 0.2s ease;
+}
+
+.new-task-button span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.new-task-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   Empty State
+   ========================= */
+
+.empty-state {
+    max-width: 700px;
+
+    margin: 20px auto 0;
+
+    padding: 55px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(30, 50, 90, 0.05);
+}
+
+.empty-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef3ff;
+    color: #2563eb;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.empty-state h2 {
+    margin: 0 0 8px;
+
+    font-size: 22px;
+
+    color: #17233c;
+}
+
+.empty-state p {
+    max-width: 420px;
+
+    margin: 0 auto 25px;
+
+    color: #718096;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.footer-bottom a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.home-page {
+    text-align: center;
+    padding: 50px 30px;
+}

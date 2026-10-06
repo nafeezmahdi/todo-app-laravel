@@ -29,4 +29,14 @@ class AuthController extends Controller
             'email' => 'The provided email or password is incorrect.',
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect()->route('login');
+}
 }
