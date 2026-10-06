@@ -21,15 +21,19 @@
 
 <body>
 
-    {{-- =========================
+    {{-- =====================================================
          Header
-         ========================= --}}
+         ===================================================== --}}
 
     <header class="site-header">
 
         <div class="header-container">
 
-            <a href="{{ route('home') }}" class="logo">
+            <a
+                href="{{ route('home') }}"
+                class="logo"
+                aria-label="MyTodo Home"
+            >
                 <span class="logo-icon">✓</span>
                 <span>MyTodo</span>
             </a>
@@ -54,7 +58,10 @@
 
                     <div class="user-menu">
 
-                        <div class="user-avatar">
+                        <div
+                            class="user-avatar"
+                            aria-hidden="true"
+                        >
                             {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                         </div>
 
@@ -108,9 +115,9 @@
     </header>
 
 
-    {{-- =========================
+    {{-- =====================================================
          Main Content
-         ========================= --}}
+         ===================================================== --}}
 
     <main class="main-content">
 
@@ -119,9 +126,9 @@
     </main>
 
 
-    {{-- =========================
+    {{-- =====================================================
          Footer
-         ========================= --}}
+         ===================================================== --}}
 
     <footer class="site-footer">
 
@@ -129,9 +136,13 @@
 
             <div class="footer-brand">
 
-                <a href="{{ route('home') }}" class="footer-logo">
+                <a
+                    href="{{ route('home') }}"
+                    class="footer-logo"
+                    aria-label="MyTodo Home"
+                >
                     <span class="logo-icon">✓</span>
-                    MyTodo
+                    <span>MyTodo</span>
                 </a>
 
                 <p>
@@ -147,10 +158,13 @@
                 </a>
 
                 @auth
+
                     <a href="{{ route('todos.create') }}">
                         New Task
                     </a>
+
                 @else
+
                     <a href="{{ route('login') }}">
                         Sign In
                     </a>
@@ -158,26 +172,28 @@
                     <a href="{{ route('register') }}">
                         Register
                     </a>
+
                 @endauth
 
             </div>
 
         </div>
 
-       <div class="footer-bottom">
 
-    <p>
-        © {{ date('Y') }} MyTodo. All rights reserved by
-        <a
-            href="https://github.com/nafeezmahdi"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            NM
-        </a>.
-    </p>
+        <div class="footer-bottom">
 
-</div>
+            <p>
+                © {{ date('Y') }} MyTodo. All rights reserved by
+                <a
+                    href="https://github.com/nafeezmahdi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    NM
+                </a>.
+            </p>
+
+        </div>
 
     </footer>
 

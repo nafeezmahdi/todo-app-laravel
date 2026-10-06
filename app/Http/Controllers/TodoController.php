@@ -15,15 +15,15 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'nullable',
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
         ]);
 
         Todo::create([
             'user_id' => Auth::id(),
-            'title' => $request->title,
-            'description' => $request->description,
+            'title' => $validated['title'],
+            'description' => $validated['description'] ?? null,
             'completed' => false,
         ]);
 
@@ -32,9 +32,7 @@ class TodoController extends Controller
 
     public function edit(Todo $todo)
     {
-        if ($todo->user_id !== Auth::id()) {
-            abort(403);
-        }
+        $this->authorizeTodo($todo);
 
         return view('todos.edit', [
             'todo' => $todo,
@@ -43,18 +41,16 @@ class TodoController extends Controller
 
     public function update(Request $request, Todo $todo)
     {
-        if ($todo->user_id !== Auth::id()) {
-            abort(403);
-        }
+        $this->authorizeTodo($todo);
 
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'nullable',
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
         ]);
 
         $todo->update([
-            'title' => $request->title,
-            'description' => $request->description,
+            'title' => $validated['title'],
+            'description' => $validated['description'] ?? null,
         ]);
 
         return redirect()->route('home');
@@ -62,12 +58,15 @@ class TodoController extends Controller
 
     public function destroy(Todo $todo)
     {
-        if ($todo->user_id !== Auth::id()) {
-            abort(403);
-        }
+        $this->authorizeTodo($todo);
 
         $todo->delete();
 
         return redirect()->route('home');
+    }
+
+    private function authorizeTodo(Todo $todo): void
+    {
+        abort_unless($todo->user_id === Auth::id(), 403);
     }
 }

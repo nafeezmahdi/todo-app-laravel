@@ -16,10 +16,8 @@ class HomeController extends Controller
         ]);
     }
 
-    public function toggle($todo)
+    public function toggle(Todo $todo)
     {
-        $todo = Todo::findOrFail($todo);
-
         if ($todo->user_id !== Auth::id()) {
             abort(403);
         }

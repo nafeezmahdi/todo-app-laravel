@@ -22,21 +22,23 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect()->route('home');
         }
 
-        return back()->withErrors([
-            'email' => 'The provided email or password is incorrect.',
-        ])->onlyInput('email');
+        return back()
+            ->withErrors([
+                'email' => 'The provided email or password is incorrect.',
+            ])
+            ->onlyInput('email');
     }
 
     public function logout(Request $request)
-{
-    Auth::logout();
+    {
+        Auth::logout();
 
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    return redirect()->route('login');
-}
+        return redirect()->route('login');
+    }
 }

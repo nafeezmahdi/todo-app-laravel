@@ -23,7 +23,7 @@ class Todo extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function toggle()
+    public function toggle(): void
     {
         $this->completed = ! $this->completed;
         $this->save();

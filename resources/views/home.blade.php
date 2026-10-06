@@ -28,6 +28,7 @@
 
         </div>
 
+
         <div class="todo-list">
 
             @forelse ($todos as $todo)
@@ -44,17 +45,19 @@
 
                     </div>
 
+
                     <div class="todo-actions">
 
+                        {{-- Complete / Pending --}}
                         <form
-                            action="{{ route('todos.toggle', $todo->id) }}"
+                            action="{{ route('todos.toggle', $todo) }}"
                             method="POST"
                         >
                             @csrf
 
                             <button
                                 type="submit"
-                                class="todo-checkbox"
+                                class="todo-checkbox {{ $todo->completed ? 'completed' : 'pending' }}"
                             >
                                 @if ($todo->completed)
                                     ✓ Completed
@@ -65,6 +68,8 @@
 
                         </form>
 
+
+                        {{-- Edit --}}
                         <a
                             href="{{ route('todos.edit', $todo) }}"
                             class="edit-btn"
@@ -72,6 +77,8 @@
                             Edit
                         </a>
 
+
+                        {{-- Delete --}}
                         <form
                             method="POST"
                             action="{{ route('todos.destroy', $todo) }}"
